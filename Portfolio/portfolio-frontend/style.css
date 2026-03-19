@@ -1,0 +1,30 @@
+body {
+  font-family: sans-serif;
+  background: #f0f0f0;
+  margin: 0;
+  padding: 0;
+}
+.hero {
+  text-align: center;
+  padding: 100px;
+  background-color: #222;
+  color: white;
+}
+.projects, .contact {
+  background: white;
+  padding: 50px;
+  max-width: 700px;
+  margin: 50px auto;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+}
+button {
+  padding: 10px 20px;
+  background: #222;
+  color: white;
+  border: none;
+}

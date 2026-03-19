@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <section class="hero">
+    <h1>Hello, I'm Sanjay</h1>
+    <p>Java Developer | Web Designer</p>
+  </section>
+
+  <section class="projects">
+    <h2>Projects</h2>
+    <ul id="projectList"></ul>
+  </section>
+
+  <section class="contact">
+    <h2>Contact Me</h2>
+    <form id="contactForm">
+      <input type="text" id="name" placeholder="Your Name" required />
+      <input type="email" id="email" placeholder="Your Email" required />
+      <textarea id="message" placeholder="Your Message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <script>
+    async function loadProjects() {
+      const res = await fetch("http://localhost:8080/api/projects");
+      const projects = await res.json();
+      const list = document.getElementById("projectList");
+      projects.forEach(p => {
+        const item = document.createElement("li");
+        item.innerHTML = `<strong>${p.title}</strong>: ${p.description} <a href="\${p.link}">[Link]</a>`;
+        list.appendChild(item);
+      });
+    }
+
+    loadProjects();
+
+    document.getElementById("contactForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
+      await fetch("http://localhost:8080/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: document.getElementById("name").value,
+          email: document.getElementById("email").value,
+          message: document.getElementById("message").value
+        })
+      });
+      alert("Message sent!");
+    });
+  </script>
+</body>
+</html>
