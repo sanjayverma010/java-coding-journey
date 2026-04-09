@@ -1,16 +1,20 @@
 class ThisDemo {
-   ThisDemo() {
+   ThisDemo()
+    {
+      this(10);
       System.out.println("no argumengt constructor");
    }
 
    ThisDemo(int a) {
-         this(); // this() is used to call no argument constructor in parameterized constructor.
+      
+      // this() is used to call no argument constructor in parameterized constructor.
+     // this();
       System.out.println("parametrized constructor");
       // this() is used to call no argument constructor in parameterized constructor.
-      
+
    }
 
    public static void main(String[] args) {
-      ThisDemo td = new ThisDemo(10);
+      ThisDemo td = new ThisDemo();
    }
 }

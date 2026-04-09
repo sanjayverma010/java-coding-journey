@@ -1,6 +1,5 @@
 // this code is to invok current class 
-
-class ThisDemo
+class ThisUse2
 {
    void display()
     {
@@ -15,7 +14,7 @@ class ThisDemo
 
  public static void main(String[] args)
 {
-   ThisDemo D = new ThisDemo();
+   ThisUse2 D = new ThisUse2();
    D.show();
 } 
 }
